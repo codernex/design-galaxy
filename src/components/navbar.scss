@@ -1,0 +1,201 @@
+$color-violet: #bc51ed;
+$color-pink: #f75f96;
+$color-yellow: #fcc66c;
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  header {
+    width: 100%;
+    nav {
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      .logo {
+        height: 60px;
+        img {
+          height: 100%;
+        }
+      }
+      .burger {
+        display: none;
+        flex-direction: column;
+        row-gap: 6px;
+        transition: 0.5s !important;
+        .line1,
+        .line2,
+        .line3 {
+          width: 30px;
+          height: 3px;
+          background-color: #fff;
+          border-radius: 3px;
+          transition: 0.5s !important;
+        }
+      }
+      ul {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        li a {
+          font-size: 1.6rem;
+          color: #fff;
+          letter-spacing: 1px;
+          transition: 0.3s;
+        }
+        li {
+          a.active {
+            color: $color-pink;
+            font-weight: 600;
+          }
+          &:hover a {
+            // color: $color-pink;
+            font-weight: 600;
+            background: linear-gradient(
+              to left,
+              #f75f96 20%,
+              #fcc66c 40%,
+              #fcc66c 60%,
+              #f75f96 80%
+            );
+            background-size: 400% auto;
+
+            color: #fff;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: HoverGradient 4s linear infinite;
+          }
+        }
+      }
+      button {
+        background: #f75f96;
+        outline: none;
+        border: none;
+        padding: 15px 35px;
+        border-radius: 50px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        cursor: pointer;
+        img {
+          width: 24px;
+        }
+        a {
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: 0 5%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .container {
+    header {
+      nav {
+        ul {
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 890px) {
+  .container {
+    padding: 0 !important;
+    header {
+      padding: 0 5%;
+      height: 10vh;
+      width: 100%;
+      // position: relative;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      nav {
+        padding: 0;
+        width: 100%;
+        .logo {
+          height: 50px;
+        }
+        button {
+          display: none;
+        }
+        .burger {
+          display: flex;
+          transition: 0.5s !important;
+          cursor: pointer;
+        }
+        ul {
+          top: 10vh;
+          flex-direction: column;
+          position: absolute;
+          align-items: center;
+          justify-content: unset;
+          row-gap: 30px;
+          left: 100%;
+          padding-top: 40px;
+          background: rgba(0, 0, 0, 0.4);
+          height: 90vh;
+          transform: translateX(100%);
+          // display: none;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.5s !important;
+
+          right: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.nav-show {
+  visibility: visible !important;
+  left: 0% !important;
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+
+.toggle .line1 {
+  transform: rotate(40deg) translateY(12px);
+  background: $color-pink !important;
+  transition: 0.5s !important;
+}
+
+.toggle .line2 {
+  opacity: 0;
+  transition: 0.5s !important;
+}
+
+.toggle .line3 {
+  transform: rotate(-40deg) translateY(-12px);
+  background: $color-pink !important;
+  transition: 0.5s !important;
+}
+
+@keyframes HoverGradient {
+  to {
+    background-position: 400% center;
+  }
+}
+
+.onScroll {
+  display: none;
+  position: absolute;
+  top: 100%;
+}
